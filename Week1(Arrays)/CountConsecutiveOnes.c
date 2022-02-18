@@ -33,28 +33,18 @@ int findMaxConsecutiveOnes (int nums[], int numsSize)
 
     for (int i = 0; i < numsSize; i++) 
     {
-        if (nums[i] == 0) {
-            //algo to check if countConsective is higher than max or not it is then convert
-            if (max < countConsective) {
-                max = countConsective;
-            }
-            //As 0 comes so we will start counting from again
+        if (nums[i] == 0)
+        {
             countConsective = 0;
 
-        } else if (i == (numsSize - 1)) 
+        } else if (nums[i] == 1) 
         {
-            if (nums[i] == 1) {
-                ++countConsective;
-            }
-
+            ++countConsective;    
             if (max < countConsective) {
                 max = countConsective;
             }
 
-        } else {
-            //count number of consective ones
-            ++countConsective;
-        }
+        } 
     }
 
     return max;
