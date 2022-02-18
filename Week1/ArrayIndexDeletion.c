@@ -5,7 +5,8 @@ int main(void)
 {
     int desiredNo;
     int desiredIndex;
-
+    int temp;
+    int temp1;
 
     int arr[SIZE] = {0,1,2,3,4,5,6,7,8};
 
