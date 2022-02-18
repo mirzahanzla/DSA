@@ -3,42 +3,33 @@
 
 int main(void)
 {
-    int desiredNo;
+    int addNo;
     int desiredIndex;
     int temp;
-    int temp1;
 
     int arr[SIZE] = {0,1,2,3,4,5,6,7,8};
 
     for (int i = 0; i < SIZE; i++)
     {
-        printf("Elements before insertion at index %d: %d\n", i,arr[i]);
+        printf("Elements before insertion at index %d: %d\n", i, arr[i]);
     }
 
     printf("Enter the number you want to insert: ");
-    scanf("%d", &desiredNo);
+    scanf("%d", &addNo);
 
     printf("Enter the index to insert there: ");
     scanf("%d", &desiredIndex);
 
-    for (int i = 0; i < SIZE; i++)
+    for (; desiredIndex < SIZE; desiredIndex++)
     {
-        if (i == desiredIndex)
-        {
-            temp = arr[i];
-            arr[i] = desiredNo;
-        }
-        else if (i > desiredIndex)
-        {
-            temp1 = arr[i];
-            arr[i] = temp;
-            temp = temp1;
-        }
+        temp = arr[desiredIndex];
+        arr[desiredIndex] = addNo;
+        addNo = temp;
     }
 
     for (int i = 0; i < SIZE; i++)
     {
-        printf("Element after insertion at index %d: %d\n", i,arr[i]);
+        printf("Element after insertion at index %d: %d\n", i, arr[i]);
     }
     
     return 0;
