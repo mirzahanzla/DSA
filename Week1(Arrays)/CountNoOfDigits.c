@@ -6,7 +6,7 @@ int sizeOfNum(int num);
 int main()
 {
     int countDigits;
-    int nums[] = {120,100000,1,34,1003};
+    int nums[] = {0,100000,1,34,1003};
     int size = sizeof(nums)/sizeof(int);
 
     for(int i = 0; i < size; i++){
@@ -27,12 +27,14 @@ int noOfDigits(int nums)
 {
     int count = 0;
     
-    while(nums != 0)
-    {
-        count++;
-        nums /= 10;            
-    }
-        
+    if (nums == 0) {
+        count = 1;
+    } else {
+        while(nums != 0){
+            count++;
+            nums /= 10;            
+        }
+    }  
     return count;
 }
 
@@ -43,17 +45,20 @@ int sizeOfNum(int num)
     int sizeOfNum = 0;
     int loopNum = 9;
 
+    if (num == 0){
+        return 1;
+    } else {
+        for(int i = 0; i <= 999999;){
+            sizeOfNum++;
 
-    for(int i = 0; i <= 999999;){
-        sizeOfNum++;
+            if(num >= i+1 && num <= loopNum)
+            {
+                return sizeOfNum;
+            }
 
-        if(num >= i+1 && num <= loopNum)
-        {
-            return sizeOfNum;
+            i = loopNum;
+            loopNum = (loopNum * 10) + 9;
         }
-
-        i = loopNum;
-        loopNum = (loopNum * 10) + 9;
     }
 
 }
