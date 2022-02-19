@@ -6,7 +6,7 @@ int sizeOfNum(int num);
 int main()
 {
     int countDigits;
-    int nums[] = {12,345,2,6,7896};
+    int nums[] = {120,100000,1,34,1003};
     int size = sizeof(nums)/sizeof(int);
 
     for(int i = 0; i < size; i++){
@@ -52,7 +52,7 @@ int sizeOfNum(int num)
     int loopNum = 9;
 
 
-    for(int i = 0; i <= 9999;){
+    for(int i = 0; i <= 999999;){
         sizeOfNum++;
 
         if(num >= i+1 && num <= loopNum)
@@ -61,7 +61,7 @@ int sizeOfNum(int num)
         }
 
         i = loopNum;
-        loopNum *= 10 + 9;
+        loopNum = (loopNum * 10) + 9;
     }
 
 }
