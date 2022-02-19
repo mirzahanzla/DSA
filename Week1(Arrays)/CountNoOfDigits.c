@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int noOfDigits(int num);
+int noOfDigits(int nums);
 int sizeOfNum(int num);
 
 int main()
@@ -10,9 +10,8 @@ int main()
     int size = sizeof(nums)/sizeof(int);
 
     for(int i = 0; i < size; i++){
-        countDigits = sizeOfNum(nums[i]);
-        // if we want to calculate by couting invidual digits
-        // countDigits = noOfDigits(nums[i]);  
+        // countDigits = sizeOfNum(nums[i]);
+        countDigits = noOfDigits(nums[i]);  
 
         if (countDigits % 2 == 0) {
             printf("%d contains %d digits (even number of digits).\n", nums[i], countDigits);
@@ -24,24 +23,17 @@ int main()
     return 0;
 }
 
-int noOfDigits(int num)
+int noOfDigits(int nums)
 {
-    int size = sizeOfNum(num);
-    int digits = 0;
-    int arr[size];
-
-    for(int i = 0; i < size; i++){     
-        arr[i]= num % 10;
-
-        if (size == 4) {
-            num = num / 100;
-        } else {
-            num = num /10;
-        }
-        digits++;
+    int count = 0;
+    
+    while(nums != 0)
+    {
+        count++;
+        nums /= 10;            
     }
-
-    return digits;
+        
+    return count;
 }
 
 
